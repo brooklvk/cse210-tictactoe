@@ -1,4 +1,5 @@
-﻿class TicTacToe
+﻿//my attempt at tic tac toe (for finished, see tic-tac-toe.cs)
+class TicTacToe
 {
     static void Main(string[] args)
     {
