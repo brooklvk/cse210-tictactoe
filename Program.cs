@@ -1,4 +1,4 @@
-﻿//my attempt at tic tac toe (for finished, see tic-tac-toe.cs)
+﻿//my attempt at tic tac toe 
 class TicTacToe
 {
     static void Main(string[] args)
@@ -106,7 +106,14 @@ class TicTacToe
     /// <returns>The next players sign (x or o)</returns>
     static string GetNextPlayer(string currentPlayer)
     {
-        return "x";
+        string nextPlayer = "x";
+
+        if (currentPlayer == "x")
+        {
+            nextPlayer = "o";
+        }
+
+        return nextPlayer;
     }
 
     /// <summary>Gets the 1-based spot number associated with the user's choice.</summary>
@@ -114,7 +121,15 @@ class TicTacToe
     /// <returns>A 1-based spot number (not a 0-based index)</returns>
     static int GetMoveChoice(string currentPlayer)
     {
-        return 1;
+        Console.Write($"{currentPlayer}'s turn to choose a square.");
+        string? move_string = Console.ReadLine();
+
+        if (move_string is null) {
+            return 0;
+        }
+
+        int choice = int.Parse(move_string);
+        return choice;
     }
 
     /// <summary>
@@ -126,6 +141,7 @@ class TicTacToe
     /// <param name="currentPlayer">The current player's sign (x or o)</param>
     static void MakeMove(List<string> board, int choice, string currentPlayer)
     {
-
+        int index = choice -1;
+        board[index] = currentPlayer;
     }
 }
